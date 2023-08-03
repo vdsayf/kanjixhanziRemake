@@ -17,6 +17,11 @@ const Paper = ({}) => {
     router.getAll()
     .then((data)=>{
       setPairList(data.data)
+      setDisplayPair({
+        input: "漢字",
+        translate: "Convert",
+        score: 0
+      })
     })
     .catch((err)=>{console.log('AllClick Catch ERR')})
   }
@@ -26,22 +31,28 @@ const Paper = ({}) => {
   },[])
 
   const searchFor = (string) => {
-    router.getLike(string)
-    .then((data)=>{
-      console.log(data)
-        router.postPair(string)
-        .then((d)=>{setDisplayPair(d.data);
-          router.getAll()
-          .then((data)=>{
-            setPairList(data.data)
-          })
-          .catch((err)=>{console.log('AllClick Catch ERR')})
+    router.postPair(string)
+    .then((d)=>{
+      if (Object.keys(d.data).length > 0) {
+        setDisplayPair(d.data);
+        router.getLike(string)
+        .then((data)=>{
+          if (data.data.length > 0) {
+            setPairList(data.data);
+          }
+        }).catch((err)=>{console.log('search', err)})
+      } else {
+        router.getLike(string)
+        .then((data)=>{
+          if (data.data.length > 0) {
+            setPairList(data.data);
+            setDisplayPair(data.data[0])
+          }
         })
-        .catch((err)=>{console.log('postCLick Catch ERR')})
-        setPairList(data.data);
-        setDisplayPair(data.data[0])
+        .catch((err)=>{console.log('search', err)})
+      }
     })
-    .catch((err)=>{console.log('search', err)})
+    .catch((err)=>{console.log('postCLick Catch ERR')})
   }
 
   return (
