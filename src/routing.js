@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const base  = `http://localhost:3002/api`
+const base  = `https://kanjihanziremake.onrender.com/api`
 
 const getAll = () => {
   return axios.get(`${base}/all`)
