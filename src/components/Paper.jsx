@@ -29,9 +29,8 @@ const Paper = ({}) => {
     router.getLike(string)
     .then((data)=>{
       console.log(data)
-      if (data.data.length === 0) {
         router.postPair(string)
-        .then((data)=>{setDisplayPair(data.data);
+        .then((d)=>{setDisplayPair(d.data);
           router.getAll()
           .then((data)=>{
             setPairList(data.data)
@@ -39,10 +38,8 @@ const Paper = ({}) => {
           .catch((err)=>{console.log('AllClick Catch ERR')})
         })
         .catch((err)=>{console.log('postCLick Catch ERR')})
-      } else {
         setPairList(data.data);
         setDisplayPair(data.data[0])
-      }
     })
     .catch((err)=>{console.log('search', err)})
   }
