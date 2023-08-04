@@ -28,7 +28,7 @@ const AllPairs = ({pairList, setDisplayPair}) => {
 
       let size = Math.max(curr.input.length, curr.translate.length);
       count += size;
-      if (count > 13) {
+      if (count > 16) {
         arr.push(
           <div className = "ml-4 mr-4">
             {currDiv}
