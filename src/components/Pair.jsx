@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import anime from 'animejs/lib/anime.es.js';
 
 const Pair = ({vocabObj, setDisplayPair, color}) => {
 
@@ -16,11 +17,10 @@ const Pair = ({vocabObj, setDisplayPair, color}) => {
     )
   }
 
-
   return (
-    <div className = "flex flex-row-reverse mt-8 hover:" onMouseOver = {()=>{setDisplayPair(vocabObj)}}>
-          <div className = "mr-[2px]">{splitWord(vocabObj.input)}</div>
-          <div className = "ml-[2px]">{splitWord(vocabObj.translate)}</div>
+    <div className = "pair flex flex-row-reverse mt-8 hover:" onMouseOver = {()=>{setDisplayPair(vocabObj)}}>
+          <div className = "rightText mr-[2px]">{splitWord(vocabObj.input)}</div>
+          <div className = "leftText ml-[2px]">{splitWord(vocabObj.translate)}</div>
     </div>
 
   )

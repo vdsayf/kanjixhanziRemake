@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import anime from 'animejs/lib/anime.es.js';
 import AllPairs from './AllPairs.jsx'
 import Search from './Search.jsx'
 import Display from './Display'
@@ -55,8 +56,52 @@ const Paper = ({}) => {
     .catch((err)=>{console.log('postCLick Catch ERR')})
   }
 
+  const allAnime = () => {
+    anime({
+      targets: '.pair',
+      translateY: [0,-20],
+      opacity: [100, 0],
+      duration: 100,
+      direction: 'reverse',
+      easing: 'easeInOutExpo',
+      delay: anime.stagger(10, {from: 'last'}),
+    })
+  }
+
+  const topperAnime = () => {
+    anime({
+      targets: '.topper',
+      translateX: [0,-300],
+      opacity: [100, 50],
+      duration: 300,
+      direction: 'reverse',
+      easing: 'easeInOutExpo',
+    })
+  }
+
+  const botterAnime = () => {
+    anime({
+      targets: '.botter',
+      translateY: [0,30],
+      translateX: [-50,200],
+      opacity: [100, 50],
+      duration: 300,
+      direction: 'reverse',
+      easing: 'easeInOutExpo',
+    })
+  }
+
+  useEffect(()=>{
+    allAnime()
+  },[pairList])
+
+  useEffect(()=>{
+    topperAnime()
+    botterAnime()
+  },[displayPair])
+
   return (
-    <div>
+    <div className = "mt-4">
     <div className = "flex flex-col w-11/12">
         <div className = "ml-auto">
           {(meatballBool)?

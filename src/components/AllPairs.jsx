@@ -1,4 +1,5 @@
 import {useState, useEffect} from "react";
+import anime from 'animejs/lib/anime.es.js';
 import router from '../routing.js'
 import Pair from './Pair'
 
@@ -27,7 +28,7 @@ const AllPairs = ({pairList, setDisplayPair}) => {
 
       let size = Math.max(curr.input.length, curr.translate.length);
       count += size;
-      if (count > 16) {
+      if (count > 13) {
         arr.push(
           <div className = "ml-4 mr-4">
             {currDiv}
