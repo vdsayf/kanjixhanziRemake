@@ -29,7 +29,6 @@ const Search = ({enterFunc, refill, meatball}) => {
   return (
     <div>
       <input className = "mt-12 border-[1px] border-black focus:outline-none" onChange = {inputChange} onKeyDown = {enterHit}></input>
-
     </div>
   )
 }
