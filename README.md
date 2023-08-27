@@ -10,7 +10,26 @@ This is a site for Kanji and Hanzi vocab.
 5. Add Splash Page
 
 ## Tech Stack
-![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) 
+
+![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Render](https://img.shields.io/badge/Render-%46E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
+
+# Git Workflow
+1. Update your local master branch, and then create a new feature branch
+   - `git checkout master`
+   - `git pull`
+   - `git checkout -b [feature-branch]`
+2. Make changes (try to keep them within the scope of your ticket)
+   - `git add .`
+   - `git commit`
+3. Before making a pull request, rebase your feature branch on the upstream master to avoid conflicts
+   - `git checkout master`
+   - `git pull`
+   - `git checkout [feature-branch]`
+   - `git rebase master`
+   - Run your code again to confirm that it still functions
+4. Make a pull request
+   - Use the name of your trello ticket in your PR title and move the ticket to the "Staged for review" list
+   - Put any additional notes (potential conflicts, scoping comments, compatibility issues) in the PR body
 
 # Getting Started with Create React App
 
